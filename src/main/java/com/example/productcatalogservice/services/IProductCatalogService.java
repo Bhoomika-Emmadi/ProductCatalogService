@@ -14,4 +14,5 @@ public interface IProductCatalogService {
     Product deleteProduct(Long productId);
 
     Product replaceProduct(Long productId, Product product);
+    Product getProductBasedOnUserScope(Long productId,Long userId);
 }

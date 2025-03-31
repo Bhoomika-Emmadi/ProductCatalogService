@@ -98,5 +98,10 @@ public class FakeStoreProductService implements IProductCatalogService {
        return fakeStoreProductDto;
     }
 
+    @Override
+    public Product getProductBasedOnUserScope(Long productId, Long userId) {
+        return null;
+    }
+
 
 }

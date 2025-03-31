@@ -80,6 +80,12 @@ public class ProductController {
         return new ResponseEntity<>(fromProduct(product), HttpStatus.OK);
     }
 
+    @GetMapping("/products/{productId}/{userId}")
+    public ProductDto getProductDetailsBasedOnUserScope(@PathVariable Long productId,@PathVariable Long userId) {
+        Product product = productService.getProductBasedOnUserScope(productId,userId);
+        return fromProduct(product);
+    }
+
     private ProductDto fromProduct(Product product){
         ProductDto productDto = new ProductDto();
         productDto.setId(product.getId());
