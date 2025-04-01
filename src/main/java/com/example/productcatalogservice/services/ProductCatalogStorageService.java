@@ -20,6 +20,9 @@ public class ProductCatalogStorageService implements IProductCatalogService{
     @Autowired
     private ProductRepository productRepository;
 
+    @Autowired
+    private RestTemplate restTemplate;
+
     @Override
     public List<Product> getProducts() {
         return productRepository.findAll();
@@ -60,9 +63,9 @@ public class ProductCatalogStorageService implements IProductCatalogService{
         Optional<Product> optionalProduct = productRepository.findById(productId);
         if(optionalProduct.isEmpty()) return null;
 
-        RestTemplate restTemplate = new RestTemplate();
+//        RestTemplate restTemplate = new RestTemplate();
         UserDto userDto = restTemplate
-                .getForEntity("http://localhost:9000/users/{userId}", UserDto.class,userId).getBody();
+                .getForEntity("http://userservice/users/{userId}", UserDto.class,userId).getBody();
 
         if(userDto != null) {
             System.out.println(userDto.getEmail());
