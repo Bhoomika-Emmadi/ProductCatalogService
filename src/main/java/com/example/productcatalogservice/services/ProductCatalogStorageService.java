@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-@Primary
+//@Primary
 public class ProductCatalogStorageService implements IProductCatalogService{
 
     @Autowired
